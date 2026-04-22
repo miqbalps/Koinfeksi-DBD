@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelompok A11 | Sistem Pakar Diagnosa Koinfeksi DBD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#91e38b",
+                "outline-variant": "#c2c6d4",
+                "surface-container-highest": "#e1e3e4",
+                "outline": "#727784",
+                "tertiary-fixed": "#a3f69c",
+                "tertiary": "#004d10",
+                "tertiary-fixed-dim": "#88d982",
+                "secondary": "#006b5f",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#f0f1f2",
+                "on-error": "#ffffff",
+                "on-primary-fixed-variant": "#004491",
+                "primary-fixed": "#d7e2ff",
+                "on-primary-fixed": "#001a40",
+                "surface-container": "#edeeef",
+                "on-primary-container": "#bbd0ff",
+                "on-secondary": "#ffffff",
+                "surface-bright": "#f8f9fa",
+                "secondary-container": "#8df1e0",
+                "background": "#f8f9fa",
+                "on-tertiary-fixed-variant": "#005312",
+                "tertiary-container": "#13671f",
+                "surface-dim": "#d9dadb",
+                "primary-container": "#0056b3",
+                "primary-fixed-dim": "#acc7ff",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-high": "#e7e8e9",
+                "surface-container-low": "#f3f4f5",
+                "on-surface": "#191c1d",
+                "on-secondary-fixed-variant": "#005047",
+                "surface-variant": "#e1e3e4",
+                "surface-tint": "#115cb9",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#73d8c7",
+                "on-surface-variant": "#424752",
+                "error-container": "#ffdad6",
+                "surface": "#f8f9fa",
+                "on-surface-variant": "#424752",
+                "on-secondary-container": "#006f63",
+                "on-tertiary-fixed": "#002204",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#00201c",
+                "inverse-surface": "#2e3132",
+                "inverse-primary": "#acc7ff",
+                "secondary-fixed": "#90f4e3",
+                "primary": "#003f87",
+                "on-background": "#191c1d"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+        }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+    <!-- TopAppBar -->
+    <header class="bg-[#f8f9fa] dark:bg-[#191c1d] docked full-width top-0 sticky z-50 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] dark:shadow-none transition-colors">
+        <div class="flex justify-between items-center h-16 px-8 max-w-7xl mx-auto">
+            <div class="flex items-center gap-8">
+                <span class="text-xl font-black text-[#003f87] dark:text-white tracking-tighter font-headline">Kelompok A11</span>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="font-headline font-semibold tracking-tight text-[#003f87] dark:text-[#0056b3] border-b-2 border-[#003f87] pb-1">Beranda</a>
+                    <a href="diagnose.html" class="font-headline font-semibold tracking-tight text-[#5a5f6b] dark:text-[#c2c6d4] hover:text-[#003f87] transition-all">Diagnosis</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="window.location.href='diagnose.html'" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-headline font-bold text-sm tracking-wide shadow-sm hover:shadow-md transition-all active:scale-95 duration-150">Mulai Diagnosis</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6">
+                        <span class="material-symbols-outlined text-sm">verified_user</span>
+                        Sistem Presisi Klinis
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-headline font-extrabold text-on-surface leading-tight tracking-tight mb-8">
+                        Sistem <span class="text-primary italic">Pakar</span>
+                        <span class="italic">Diagnosa Koinfeksi DBD</span>.
+                    </h1>
+                    <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed mb-10">
+                        Sistem ini menghitung probabilitas dengan Teorema Bayes dan memverifikasi pola dengan aturan deterministik (Rule Based) untuk membantu pengambilan keputusan klinis.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-lg flex items-center gap-3 shadow-lg hover:translate-y-[-2px] transition-all duration-300" onclick="window.location.href='diagnose.html'">
+                            Mulai Analisis
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-highest transition-all duration-300" onclick="document.getElementById('workflow')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+                            Cara Kerja
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-fixed-dim/20 rounded-full blur-3xl"></div>
+                    <div class="relative glass-card border border-outline-variant/15 rounded-[2rem] p-8 shadow-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
+                             data-alt="Modern medical laboratory interface with high-resolution data visualization and clean clinical aesthetics in a soft sunlit office" 
+                             class="w-full h-[400px] object-cover rounded-xl mb-8" />
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <span class="block text-3xl font-headline font-extrabold text-primary">512</span>
+                                <span class="text-xs font-label uppercase tracking-widest text-outline">Confirmed Cases</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="block text-3xl font-headline font-extrabold text-primary">98.4%</span>
+                                <span class="text-xs font-label uppercase tracking-widest text-outline">Specificity</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="block text-3xl font-headline font-extrabold text-primary">&lt;2s</span>
+                                <span class="text-xs font-label uppercase tracking-widest text-outline">Latency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works - Timeline -->
+        <section id="workflow" class="py-32 px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-4xl font-headline font-bold text-on-surface mb-6">Alur Klinis</h2>
+                <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 -translate-x-1/2 h-full w-px bg-outline-variant hidden md:block"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center mb-24 relative">
+                    <div class="md:w-1/2 md:pr-16 text-center md:text-right mb-8 md:mb-0">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Tahap 01</h4>
+                        <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Input Gejala</h3>
+                        <p class="text-on-surface-variant max-w-md ml-auto">Tenaga kesehatan memilih gejala klinis yang muncul. Sistem menyiapkan data untuk perhitungan probabilitas dan verifikasi aturan.</p>
+                    </div>
+                    <div class="z-10 w-12 h-12 rounded-full bg-surface-container-lowest border-4 border-primary shadow-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-xl">edit_note</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 hidden md:block"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center mb-24 relative">
+                    <div class="md:w-1/2 md:pl-16 text-center md:text-left mb-8 md:mb-0">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Tahap 02</h4>
+                        <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Perhitungan Bayes</h3>
+                        <p class="text-on-surface-variant max-w-md">Sistem menghitung probabilitas posterior tiap hipotesis berdasarkan prior dan likelihood gejala yang dipilih.</p>
+                    </div>
+                    <div class="z-10 w-12 h-12 rounded-full bg-surface-container-lowest border-4 border-primary shadow-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-xl">psychology</span>
+                    </div>
+                    <div class="md:w-1/2 md:pr-16 hidden md:block"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center relative">
+                    <div class="md:w-1/2 md:pr-16 text-center md:text-right mb-8 md:mb-0">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Tahap 03</h4>
+                        <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Verifikasi Rule Based</h3>
+                        <p class="text-on-surface-variant max-w-md ml-auto">Hasil Bayes dibandingkan dengan aturan deterministik untuk mendeteksi pola yang kuat sesuai basis pengetahuan.</p>
+                    </div>
+                    <div class="z-10 w-12 h-12 rounded-full bg-surface-container-lowest border-4 border-primary shadow-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 hidden md:block"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="px-8 pb-32">
+            <div class="max-w-5xl mx-auto bg-[#003f87] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/50 to-primary-container/80"></div>
+                <!-- Decorative Circle -->
+                <div class="absolute -bottom-20 -left-20 w-64 h-64 border border-white/10 rounded-full"></div>
+                <div class="absolute -top-10 -right-10 w-48 h-48 border border-white/10 rounded-full"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black text-white mb-8">Siap membantu keputusan <br/>klinismu?</h2>
+                    <p class="text-on-primary-container text-lg max-w-2xl mx-auto mb-12 opacity-90">
+                        Jalankan analisis dari gejala yang dipilih untuk melihat probabilitas dan verifikasi aturan dalam satu halaman.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="window.location.href='diagnose.html'" class="bg-white text-primary px-10 py-4 rounded-xl font-headline font-extrabold text-lg shadow-xl hover:bg-surface-bright transition-all active:scale-95">
+                            Mulai Diagnosis
+                        </button>
+                        <button onclick="window.location.href='diagnose.html'" class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-headline font-extrabold text-lg hover:bg-white/10 transition-all active:scale-95">
+                            Lihat Hasil
+                        </button>
+                    </div>
+                    <p class="mt-8 text-white/50 text-xs font-label uppercase tracking-widest">Perhitungan Bayes + Rule Based dalam 1 halaman</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container py-16 px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <span class="text-xl font-black text-primary tracking-tighter font-headline mb-6 block">Kelompok A11</span>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Mendukung diagnosis penyakit tropis melalui perhitungan probabilitas dan aturan klinis.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline font-bold text-on-surface mb-6">Produk</h4>
+                <ul class="space-y-4 text-sm text-on-surface-variant font-medium">
+                    <li><a href="diagnose.html" class="hover:text-primary">Mesin Diagnosis</a></li>
+                    <li><a href="#workflow" class="hover:text-primary">Cara Kerja</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline font-bold text-on-surface mb-6">Perusahaan</h4>
+                <ul class="space-y-4 text-sm text-on-surface-variant font-medium">
+                    <li><a href="#" class="hover:text-primary">Tentang</a></li>
+                    <li><a href="#" class="hover:text-primary">Publikasi</a></li>
+                    <li><a href="#" class="hover:text-primary">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-primary">Ketentuan Layanan</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline font-bold text-on-surface mb-6">Dukungan</h4>
+                <div class="bg-surface-container-high p-4 rounded-xl">
+                    <p class="text-xs text-on-surface-variant mb-4">Berlangganan pembaruan sistem</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="w-full bg-surface-container-lowest border-none rounded-lg text-sm px-3 focus:ring-2 focus:ring-primary" />
+                        <button class="bg-primary text-on-primary w-10 h-10 rounded-lg flex items-center justify-center">
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-outline-variant/30 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-outline font-label">© 2024 Kelompok A11 Sistem Pakar Diagnosa Koinfeksi DBD. All rights reserved.</p>
+            <div class="flex gap-6">
+                <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">public</span>
+                <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">account_balance</span>
+                <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">shield_with_heart</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
